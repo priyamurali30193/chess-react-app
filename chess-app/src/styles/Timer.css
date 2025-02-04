@@ -1,0 +1,21 @@
+/* Add this to App.css or Timer.css */
+.timer {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .timer div {
+    text-align: center;
+  }
+  
+  .timer h4 {
+    margin: 0;
+    font-size: 18px;
+  }
+  
+  .timer p {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  

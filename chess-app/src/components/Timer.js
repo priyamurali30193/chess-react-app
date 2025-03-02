@@ -1,67 +1,49 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from "react";
 
-const Timer = ({ currentTurn, moveMade, resetTimer, setGameOver ,playerColor }) => {
-  const [whiteTime, setWhiteTime] = useState(1200); // 20 minutes for white
-  const [blackTime, setBlackTime] = useState(1200); // 20 minutes for black
-  const [timerActive, setTimerActive] = useState(false); // Timer state for the active player
+const Timer = ({ currentTurn, playerColor, resetTimer, setGameOver, timerActive, setTimerActive }) => {
+  const initialTime = 1200; // 20 minutes in seconds
+  const [time, setTime] = useState(initialTime);
 
-  // Handle timer reset when resetTimer is true
   useEffect(() => {
     if (resetTimer) {
-      setWhiteTime(1200); // Reset to 20 minutes for white
-      setBlackTime(1200); // Reset to 20 minutes for black
-      setTimerActive(false); // Stop timer when reset
-      setGameOver(false); // Reset game over state
+      setTime(initialTime);  // ✅ Reset timer when game resets
+      setTimerActive(false); // ✅ Stop timer
     }
-  }, [resetTimer, setGameOver]);
+  }, [resetTimer, setTimerActive]); // ✅ Added 'setTimerActive' to dependencies
 
-  // Timer logic for counting down based on the current player's turn
   useEffect(() => {
-    if (!moveMade || whiteTime === 0 || blackTime === 0) return; // Prevent timer when no move is made
+    if (currentTurn === playerColor) {
+      setTimerActive(true);  // ✅ Start timer when it's this player's turn
+    } else {
+      setTimerActive(false); // ❌ Stop timer when it's not their turn
+    }
+  }, [currentTurn, playerColor, setTimerActive]); // ✅ Already correct
 
-    const timer = setInterval(() => {
-      if (currentTurn === 'w' && whiteTime > 0 && timerActive) {
-        setWhiteTime((prevTime) => prevTime - 1); // Decrease white's time
-      } else if (currentTurn === 'b' && blackTime > 0 && timerActive) {
-        setBlackTime((prevTime) => prevTime - 1); // Decrease black's time
-      }
+  // ✅ Use useCallback to prevent unnecessary re-creations
+  const handleTimeout = useCallback(() => {
+    setGameOver(true);
+    setTimerActive(false);
+  }, [setGameOver, setTimerActive]);
 
-      if (whiteTime === 0 || blackTime === 0) {
-        clearInterval(timer); // Stop timer when time runs out
-        setGameOver(true); // End the game if time is over
-      }
+  useEffect(() => {
+    if (!timerActive) return;
+
+    const interval = setInterval(() => {
+      setTime((prevTime) => {
+        if (prevTime <= 0) {
+          handleTimeout(); // ✅ Call the useCallback function
+          return 0; // ✅ Stop at 0
+        }
+        return prevTime - 1;
+      });
     }, 1000);
 
-    return () => clearInterval(timer); // Cleanup timer on unmount
-  }, [moveMade, currentTurn, whiteTime, blackTime, timerActive, setGameOver]);
-
-  // Function to format time in MM:SS format
-  const formatTime = (timeInSeconds) => {
-    const minutes = Math.floor(timeInSeconds / 60);
-    const seconds = timeInSeconds % 60;
-    return `${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-  };
-
-  useEffect(() => {
-    if (moveMade) {
-      setTimerActive(true); // Start timer when a move is made
-    }
-  }, [moveMade]);
+    return () => clearInterval(interval);
+  }, [timerActive, handleTimeout]); // ✅ Added 'handleTimeout' to dependencies
 
   return (
-    <div className="timer">
-      {playerColor === 'white' && (
-        <div>
-          <h4>White's Time</h4>
-          <p>{blackTime === 0 ? 'Game Over' : formatTime(blackTime)}</p>
-        </div>
-      )}
-      {playerColor === 'black' && (
-        <div>
-          <h4>Black's Time</h4>
-          <p>{whiteTime === 0 ? 'Game Over' : formatTime(whiteTime)}</p>
-        </div>
-      )}
+    <div>
+      <h2>{playerColor === "white" ? "White Time" : "Black Time"}: {time}s</h2>
     </div>
   );
 };

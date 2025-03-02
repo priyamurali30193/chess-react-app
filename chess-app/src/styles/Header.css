@@ -1,0 +1,79 @@
+.header-appbar {
+  background: rgb(163, 163, 230) !important;
+  padding: 6px 0;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  height: 65px;
+}
+
+.header-toolbar {
+  display: flex;
+  justify-content: space-between; /* Push left and right sections apart */
+  align-items: center;
+  padding: 0 20px;
+}
+
+/* Left Side: Logo + Nav Links */
+.header-left {
+  display: flex;
+  align-items: center;
+  float: left;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  font-size: 20px;
+  color: #ffcc00;
+  margin-right: 20px;
+}
+
+.header-logo {
+  width: 50px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 60%;
+}
+
+/* Navigation Links */
+.nav-links-container {
+  display: flex;
+  gap: 15px;
+}
+
+.nav-links {
+  color: white !important;
+  font-size: 16px !important;
+  font-weight: 600 !important;
+  text-transform: none !important;
+  transition: 0.3s ease-in-out;
+}
+
+.nav-links:hover {
+  color: #ffcc00 !important;
+  transform: scale(1.1);
+}
+
+/* Right Side: User Info */
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.username {
+  color: white;
+  font-weight: bold;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header-toolbar {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links-container {
+    margin-top: 10px;
+  }
+}

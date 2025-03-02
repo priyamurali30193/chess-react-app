@@ -1,21 +1,27 @@
 import React from 'react';
+import "../styles/Movehistory.css";
 
-const MoveHistoryTable = ({ moves, playerColor }) => {
+const MoveHistoryTable = ({ whiteMoves, blackMoves }) => {
+  console.log("📜 Move History Table - White Moves:", whiteMoves);
+  console.log("📜 Move History Table - Black Moves:", blackMoves);
+
+  const maxMoves = Math.max(whiteMoves.length, blackMoves.length);
+
   return (
-    <div className="move-history-section">
-      <h4>{playerColor} Moves</h4>
+    <div className="move-history">
+      <h3>Move History</h3>
       <table>
         <thead>
           <tr>
-            <th>Move Number</th>
-            <th>Move</th>
+            <th>White</th>
+            <th>Black</th>
           </tr>
         </thead>
         <tbody>
-          {moves.map((move, index) => (
+          {Array.from({ length: maxMoves }).map((_, index) => (
             <tr key={index}>
-              <td>{index + 1}</td>
-              <td>{move}</td>
+              <td>{whiteMoves[index] || "..."}</td>
+              <td>{blackMoves[index] || "..."}</td>
             </tr>
           ))}
         </tbody>
@@ -23,5 +29,7 @@ const MoveHistoryTable = ({ moves, playerColor }) => {
     </div>
   );
 };
+
+
 
 export default MoveHistoryTable;

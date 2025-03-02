@@ -1,14 +1,24 @@
-
 import React from 'react';
-import { Chessboard } from 'react-chessboard';
+import {Chessboard} from 'react-chessboard';
 
-const ChessboardComponent = ({ position, onPieceDrop }) => {
+const ChessboardComponent = ({ position, onMove }) => {
+  const onPieceDrop = (source, target) => {
+    if (typeof onMove !== "function") {
+      console.error("❌ ERROR: onMove is undefined or not a function!", onMove);
+      return;
+    }
+    onMove(source, target);
+  };
+  
+
   return (
+    <div  className="chessboard">
     <Chessboard
-      boardOrientation="white"
       position={position}
       onPieceDrop={onPieceDrop}
+      draggable={true}
     />
+    </div>
   );
 };
 

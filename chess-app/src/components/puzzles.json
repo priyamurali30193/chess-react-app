@@ -1,0 +1,19 @@
+[
+    {
+      "fen": "8/8/2k5/8/4Q3/8/2K5/8 w - - 0 1",
+      "solution": ["Qe4-c6#"],
+      "playerToMove": "w"
+    },
+    {
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p3/2B1P3/5N2/PPPP1PPP/RNBQK2R w KQkq - 2 4",
+      "solution": ["d2-d4"],
+      "playerToMove": "w"
+    },
+    {
+      "fen": "8/8/8/8/3k4/8/4R3/7K w - - 0 1",
+      "solution": ["Re2-d2#"],
+      "playerToMove": "w"
+    }
+  ]
+
+  

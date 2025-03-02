@@ -1,0 +1,68 @@
+.invite-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f4f4f4;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1500px;
+    height: 250vw;
+    max-height: 1500px;
+  height: 250vw;
+  max-height: 1500px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .invite-container p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .invite-container input {
+    width: 90%;
+    padding: 8px;
+    font-size: 16px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    background-color: #fff;
+    cursor: not-allowed;
+  }
+  
+  .invite-container button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-bottom: 8px;
+  }
+  
+  .invite-container button:hover {
+    background: #0056b3;
+  }
+  
+  .invite-container button:active {
+    transform: scale(0.98);
+  }
+  
+  .invite-container button:last-child {
+    background: #25d366;
+  }
+  
+  .invite-container button:last-child:hover {
+    background: #1da851;
+  }
+  

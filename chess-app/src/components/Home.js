@@ -15,7 +15,7 @@ const Home = () => {
       {/* Left Content */}
       <div className="home-content">
         <Typography variant="h3" className="home-title">
-          Welcome to DChess
+          Welcome to DChess for kids
         </Typography>
         <p className="home-description">
           Play Chess online, challenge AI, solve puzzles, and improve your skills!

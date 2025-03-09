@@ -24,30 +24,29 @@ const DailyPuzzle = () => {
           Player to Move: {puzzle.playerToMove.toUpperCase()}
         </Typography>
 
-        {/* Display the chess board using the FEN */}
-        <div className="chessboard-wrapper">
-          <Chessboard position={puzzle.fen} boardWidth={300} />
-        </div>
-
-       
-
-        <Button
-          variant="contained"
-          color="primary"
-          onClick={toggleSolution}
-          className="puzzle-button"
-          style={{ marginTop: "15px" }}
-        >
-          {showSolution ? "Hide Solution" : "Show Solution"}
-        </Button>
-
-        {showSolution && (
-          <div className="puzzle-solution">
-            <Typography variant="body1">
-              Solution: {puzzle.solution.join(", ")}
-            </Typography>
+        {/* New container to align chessboard and solution side by side */}
+        <div className="puzzle-content">
+          <div className="chessboard-wrapper">
+            <Chessboard position={puzzle.fen} boardWidth={150} />
           </div>
-        )}
+          <div className="solution-wrapper">
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={toggleSolution}
+              className="puzzle-button"
+            >
+              {showSolution ? "Hide Solution" : "Show Solution"}
+            </Button>
+            {showSolution && (
+              <div className="puzzle-solution">
+                <Typography variant="body1">
+                  Solution: {puzzle.solution.join(", ")}
+                </Typography>
+              </div>
+            )}
+          </div>
+        </div>
       </CardContent>
     </Card>
   );

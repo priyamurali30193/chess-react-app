@@ -9,13 +9,17 @@ const Home = () => {
 
   return (
     <div className="home-container">
+      {/* Common Hero Title - appears across both hero section & sidebar */}
+      <div className="common-hero-title">
+        <Typography variant="h1" className="common-title-text">
+          DChess: Your Ultimate Chess Adventure!
+        </Typography>
+      </div>
+
       <div className="hero-info-container">
         {/* Hero Section (Left Side) */}
         <div className="hero-section">
           <div className="hero-content">
-            <Typography variant="h2" className="hero-title">
-              Welcome to DChess – Your Ultimate Chess Adventure!
-            </Typography>
             <Typography variant="h5" className="hero-subtitle">
               At DChess, every move opens the door to a new adventure! Our app
               transforms the timeless game of chess into a vibrant, interactive
@@ -39,9 +43,9 @@ const Home = () => {
               </Button>
             </div>
           </div>
-          </div>
+        </div>
 
-        {/* Sidebar: Chess Info and Daily Puzzle */}
+        {/* Sidebar: Chess Info & Daily Puzzle */}
         <div className="sidebar">
           <div className="chess-info">
             <Typography variant="h4" className="info-title">
@@ -55,14 +59,14 @@ const Home = () => {
               <li>♛ Discover new tactics with interactive tutorials.</li>
               <li>♚ Protect your King and checkmate your opponent.</li>
               <li>🏆 Become the ultimate chess champion!</li>
-            </ul>
-          </div>
+            </ul> 
+            </div>
           <div className="daily-puzzle-section">
             <DailyPuzzle />
+         
           </div>
         </div>
       </div>
-
     {/* Extra Content: Video Section with Info */}
 {/* Extra Content: Video Section with Tutorial Info */}
 <div className="extra-content">

@@ -3,7 +3,7 @@
   min-height: 100vh;
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 35px auto;
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
@@ -11,14 +11,33 @@
   box-sizing: border-box;
 }
 
+/* Common Hero Title (spanning both hero and sidebar) */
+.common-hero-title {
+  width: 100%;
+  padding: 20px 80px;
+  background: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+ 
+ 
+}
+
+.common-title-text {
+  font-size: 70px !important;
+  color: #333;
+  font-weight: 700;
+  margin-top: 40px;
+}
+
 /* Container for Hero Section and Sidebar */
 .hero-info-container {
   display: flex;
   justify-content: space-between;
-  align-items: stretch;  /* Stretch children to same height */
+  align-items: stretch;  /* Force children to stretch to the container's height */
   padding: 60px 80px;
-  flex: 1;
-
+  /* Set an explicit height */
+  height: 600px;  /* Adjust to your desired value */
 }
 
 
@@ -28,34 +47,27 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-height: 600px; 
-
+ 
+  
 }
 
 .hero-content {
-  max-width: 600px;
-
+  max-width: 900px;
   background: rgba(255, 255, 255, 0.85);
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-.hero-title {
-  color: #333;
-  font-weight: 700;
-  font-size: 2rem;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
-}
-
+/* Reduced font sizes for hero content */
 .hero-subtitle {
   color: #555;
   margin-bottom: 30px;
   line-height: 1.5;
-  font-size: 1.4rem;
+  font-size: 1rem;
 }
 
+/* Hero Buttons */
 .hero-buttons .play-button {
   background: #1a73e8;
   color: white;
@@ -73,23 +85,27 @@
 /* Sidebar (Right Side) - Contains Chess Info & Daily Puzzle */
 .sidebar {
   display: flex;
+  background: #000; 
   flex-direction: column;
-  gap: 10px;
-  flex: 1.2;
   margin-left: 40px;
+  max-height: 1350px;
   flex: 0.8;
+  /* Apply a single box shadow for the entire sidebar */
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 /* Common styling for Chess Info and Daily Puzzle sections */
 .chess-info,
 .daily-puzzle-section {
-  background: #000; /* Black background */
-  padding: 30px 20px;
+  /* Black background */
+  padding: 5px 0px;
   text-align: left;
   border-radius: 10px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
   color: #fff;
   flex: 1;
+  margin: 0;
+  /* Remove individual box-shadows */
+  box-shadow: none;
 }
 
 /* Chess Info Specific Styles */
@@ -120,6 +136,43 @@
   left: 0;
 }
 
+/* Extra Content: Video Section with Tutorial Info (Below Hero Section) */
+.extra-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 80px;
+  box-sizing: border-box;
+  gap: 20px;
+}
+
+/* Video Section */
+.video-section {
+  flex: 1;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Video Wrapper for Smaller Video */
+.video-wrapper.small-video {
+  position: relative;
+  width: 500px;
+  height: 281px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video-wrapper.small-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
 /* Extra Content: Video Section with Tutorial Info */
 .extra-content {
   display: flex;
@@ -130,7 +183,7 @@
   box-sizing: border-box;
   gap: 20px;
   box-shadow: 0px 4px 15px rgba(167, 95, 95, 0.1);
-   height: 650px;
+   /*height: 650px;*/
 }
 
 /* Video Section */
@@ -177,15 +230,8 @@
   color: #333;
   font-weight: 600;
   margin-bottom: 15px;
-  font-size: 1.8rem;
+  font-size: 1.8 rem!important;
   text-align: center;
-}
-
-.tutorial-info-text {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.5;
-  text-align: justify;
 }
 
 

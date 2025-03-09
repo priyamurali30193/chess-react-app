@@ -1,67 +1,60 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Typography } from "@mui/material";
-import Loginpop from "./Loginpop.jsx";
 import "../styles/Home.css";
 import logo from "../images/kingmove.png";
 import queen from "../images/queen.png";
 
 const Home = () => {
   const navigate = useNavigate();
-  const [isLoginOpen, setLoginOpen] = useState(false);
-
+ 
   return (
     <div className="home-container">
-      {/* Left Content */}
-      <div className="home-content">
-        <Typography variant="h3" className="home-title">
-          Welcome to DChess for kids
-        </Typography>
-        <p className="home-description">
-          Play Chess online, challenge AI, solve puzzles, and improve your skills!
-        </p>
-
-        <div className="home-buttons">
-          <Button className="play-button" onClick={() => navigate("/play")}>
-            Play Now
-          </Button>
-          <Button className="login-button" onClick={() => setLoginOpen(true)}>
-            Login
-          </Button>
+      {/* Hero Section */}
+      <div className="hero-section">
+        <div className="hero-content">
+          <Typography variant="h2" className="hero-title">
+            Welcome to DChess for Kids
+          </Typography>
+          <Typography variant="h5" className="hero-subtitle">
+            Unleash your inner chess champion with fun puzzles and online play!
+          </Typography>
+          <div className="hero-buttons">
+            <Button className="play-button" onClick={() => navigate("/play")}>
+              Play Now
+            </Button>
+          </div>
         </div>
-
-        {/* Chess Images */}
-        <div className="home-image-container">
-          <img src={logo} alt="Chess" className="home-image" />
-          <img src={queen} alt="Chess" className="home-image" />
+        <div className="hero-images">
+          <img src={logo} alt="King Move" className="hero-image king" />
+          <img src={queen} alt="Queen" className="hero-image queen" />
         </div>
       </div>
 
-      {/* Chess Rules Section */}
-      <div className="chess-rules">
-        <Typography variant="h4" className="rules-title">
-          Chess Rules
+      {/* Info Section */}
+      <div className="chess-info">
+        <Typography variant="h4" className="info-title">
+          Learn Chess the Fun Way!
         </Typography>
-        <ul className="rules-list">
-          <li>♟️ Each player starts with 16 pieces.</li>
-          <li>♞ Knights move in an "L" shape.</li>
-          <li>♝ Bishops move diagonally.</li>
-          <li>♜ Rooks move horizontally and vertically.</li>
-          <li>♛ Queens move in any direction.</li>
-          <li>♚ The King must be protected at all costs.</li>
-          <li>🏆 Checkmate the opponent's King to win.</li>
+        <ul className="info-list">
+          <li>♟️ Master the art of strategy with every move.</li>
+          <li>♞ Enjoy puzzles and challenges at every level.</li>
+          <li>♝ Improve your skills by playing against AI.</li>
+          <li>♜ Engage in friendly online matches.</li>
+          <li>♛ Discover new tactics with interactive tutorials.</li>
+          <li>♚ Protect your King and checkmate your opponent.</li>
+          <li>🏆 Become the ultimate chess champion!</li>
         </ul>
       </div>
 
-      {/* Login Popup */}
-      <Loginpop open={isLoginOpen} handleClose={() => setLoginOpen(false)} />
-
       {/* Footer */}
       <footer className="home-footer">
-        <p>&copy; {new Date().getFullYear()} DChess. All Rights Reserved.</p>
-        <p>
+        <Typography variant="body2">
+          &copy; {new Date().getFullYear()} DChess. All Rights Reserved.
+        </Typography>
+        <Typography variant="body2">
           <a href="/about">About</a> | <a href="/contact">Contact</a> | <a href="/privacy">Privacy Policy</a>
-        </p>
+        </Typography>
       </footer>
     </div>
   );

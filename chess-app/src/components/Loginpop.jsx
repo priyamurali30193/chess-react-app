@@ -1,14 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Dialog, DialogTitle, DialogContent, TextField, Button, IconButton, Alert, Typography } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from "../firebase";
-import { updateProfile } from "firebase/auth"; // ✅ Import updateProfile
+import { updateProfile, onAuthStateChanged } from "firebase/auth"; // ✅ Import onAuthStateChanged
 
-const LoginPopup = ({ open, handleClose, setUser }) => { // ✅ Accept setUser as prop
+const LoginPopup = ({ open, handleClose, setUser }) => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [isSignup, setIsSignup] = useState(false);
+
+    useEffect(() => {
+        // ✅ Listen for auth changes to close popup when user logs in
+        const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+            if (currentUser) {
+                setUser(currentUser);
+                handleClose(); // ✅ Close popup when user logs in
+            }
+        });
+
+        return () => unsubscribe();
+    }, [handleClose, setUser]);
 
     const handleAuth = async () => {
         try {
@@ -21,8 +33,7 @@ const LoginPopup = ({ open, handleClose, setUser }) => { // ✅ Accept setUser a
             }
 
             setUser(userCredential.user); // ✅ Store user data
-            console.log("✅ Auth Success:", userCredential.user);
-            handleClose();
+            handleClose(); // ✅ Close popup
         } catch (err) {
             setError(err.message);
             console.error("❌ Authentication Error:", err.message);

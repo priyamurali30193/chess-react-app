@@ -1,108 +1,193 @@
 /* Container and Overall Layout */
 .home-container {
   min-height: 100vh;
-  width: 140vw;
-  max-width: 1400px; /* Increase maximum width */
-  height: 100vh;
-  margin: 0 auto; /* Center the container */
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
   display: flex;
   flex-direction: column;
   background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
   font-family: 'Roboto', sans-serif;
+  box-sizing: border-box;
 }
 
-/* Hero Section */
-.hero-section {
+/* Container for Hero Section and Sidebar */
+.hero-info-container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 50px 80px; /* Increased horizontal padding */
+  align-items: stretch;  /* Stretch children to same height */
+  padding: 60px 80px;
   flex: 1;
+
+}
+
+
+/* Hero Section (Left Side) */
+.hero-section {
+  flex: 1.3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 600px; 
+
 }
 
 .hero-content {
-  flex: 1;
   max-width: 600px;
+
+  background: rgba(255, 255, 255, 0.85);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .hero-title {
-  color: #1a1a1a;
+  color: #333;
   font-weight: 700;
+  font-size: 2rem;
   margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .hero-subtitle {
-  color: #333;
+  color: #555;
   margin-bottom: 30px;
+  line-height: 1.5;
+  font-size: 1.4rem;
 }
 
 .hero-buttons .play-button {
   background: #1a73e8;
   color: white;
-  padding: 12px 30px;
-  font-size: 16px;
+  padding: 14px 32px;
+  font-size: 18px;
   border-radius: 30px;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
 .hero-buttons .play-button:hover {
   background: #1669c1;
-}
-
-/* Hero Images */
-.hero-images {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-}
-
-.hero-image {
-  max-width: 300px;
-  width: 100%;
-  transition: transform 0.3s ease;
-}
-
-.hero-image.king {
-  position: absolute;
-  left: -50px;
-  top: 20px;
-}
-
-.hero-image.queen {
-  position: absolute;
-  right: -50px;
-  bottom: 20px;
-}
-
-.hero-image:hover {
   transform: scale(1.05);
 }
 
-/* Info Section */
-.chess-info {
-  background: #ffffff;
-  padding: 30px 20px;
-  text-align: center;
+/* Sidebar (Right Side) - Contains Chess Info & Daily Puzzle */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1.2;
+  margin-left: 40px;
+  flex: 0.8;
 }
 
+/* Common styling for Chess Info and Daily Puzzle sections */
+.chess-info,
+.daily-puzzle-section {
+  background: #000; /* Black background */
+  padding: 30px 20px;
+  text-align: left;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  color: #fff;
+  flex: 1;
+}
+
+/* Chess Info Specific Styles */
 .info-title {
-  color: #1a1a1a;
   margin-bottom: 20px;
   font-weight: 600;
+  font-size: 1.8rem;
+  color: #fff;
 }
 
 .info-list {
   list-style: none;
   padding: 0;
-  color: #555;
+  color: #ccc;
   font-size: 16px;
 }
 
 .info-list li {
   margin-bottom: 10px;
+  padding-left: 10px;
+  position: relative;
 }
+
+.info-list li::before {
+  content: "•";
+  color: #1a73e8;
+  position: absolute;
+  left: 0;
+}
+
+/* Extra Content: Video Section with Tutorial Info */
+.extra-content {
+  display: flex;
+  justify-content: space-between;
+  background: rgba(121, 118, 118, 0.95);
+  align-items: center;
+  padding: 50px 80px;
+  box-sizing: border-box;
+  gap: 20px;
+  box-shadow: 0px 4px 15px rgba(167, 95, 95, 0.1);
+   height: 650px;
+}
+
+/* Video Section */
+.video-section {
+  flex: 1;
+  background: rgba(15, 15, 15, 0.95);
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Video Wrapper for Smaller Video */
+.video-wrapper.small-video {
+  position: relative;
+  width: 800px;
+  height: 381px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.video-wrapper.small-video iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+}
+
+/* Tutorial Info Section */
+.tutorial-info {
+  flex: 1;
+  background: rgba(151, 148, 148, 0.95);
+  padding: 30px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 410px;;
+}
+
+.tutorial-info-title {
+  color: #333;
+  font-weight: 600;
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  text-align: center;
+}
+
+.tutorial-info-text {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+  text-align: justify;
+}
+
 
 /* Footer */
 .home-footer {
@@ -124,11 +209,12 @@
 
 /* Responsive Adjustments */
 @media (max-width: 768px) {
-  .hero-section {
+  .hero-info-container, .extra-content {
     flex-direction: column;
     padding: 30px 20px;
   }
-  .hero-images {
-    margin-top: 20px;
+  .sidebar {
+    margin-left: 0;
+    margin-top: 30px;
   }
 }

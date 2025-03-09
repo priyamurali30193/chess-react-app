@@ -1,0 +1,236 @@
+.daily-puzzle-card {
+    max-width: 400px;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(14, 14, 14, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .daily-puzzle-card:hover {
+    transform: scale(1.03);/* Container and Overall Layout */
+    .home-container {
+      min-height: 100vh;
+      width: 100%;
+      max-width: 1400px; 
+      margin: 0 auto; 
+      display: flex;
+      flex-direction: column;
+      background: linear-gradient(135deg, #fceabb, #f8b500); /* Warm, playful gradient */
+      font-family: 'Roboto', sans-serif;
+    }
+    
+    /* Container for Hero and Sidebar */
+    .hero-info-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 60px 80px;
+      flex: 1;
+    }
+    
+    /* Hero Section (Left Side) */
+    .hero-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .hero-content {
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.85);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .hero-title {
+      color: #333;
+      font-weight: 700;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hero-subtitle {
+      color: #555;
+      margin-bottom: 30px;
+      line-height: 1.4;
+    }
+    
+    .hero-buttons .play-button {
+      background: #1a73e8;
+      color: white;
+      padding: 14px 32px;
+      font-size: 18px;
+      border-radius: 30px;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+    
+    .hero-buttons .play-button:hover {
+      background: #1669c1;
+      transform: scale(1.05);
+    }
+    
+    /* Sidebar (Right Side) */
+    .sidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        flex: 0.5;
+        margin-left: 40px;
+      }
+      
+   /* Common style for Chess Info and Daily Puzzle sections */
+.chess-info,
+.daily-puzzle-section {
+  background: #000;  /* Black background */
+  padding: 30px 20px;
+  text-align: left;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  color: #fff;  /* White text for contrast */
+}
+
+/* Chess Info specific inner elements */
+.info-title {
+  margin-bottom: 20px;
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+
+.info-list {
+  list-style: none;
+  padding: 0;
+  color: #ccc;
+  font-size: 16px;
+}
+
+.info-list li {
+  margin-bottom: 10px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.info-list li::before {
+  content: "•";
+  color: #1a73e8;
+  position: absolute;
+  left: 0;
+}
+    /* Daily Puzzle Section */
+    /* The DailyPuzzle component handles its own styling; you can add extra spacing if needed. */
+    
+    /* Extra Content: Video Section */
+    .extra-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 50px 80px;
+    }
+    
+    .video-section {
+      flex: 1;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+    }
+    
+    .section-title {
+      color: #333;
+      margin-bottom: 20px;
+      font-weight: 600;
+      text-align: center;
+      font-size: 1.8rem;
+    }
+    
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+    
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+    }
+    
+    /* Footer */
+    .home-footer {
+      background: #1a1a1a;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .home-footer a {
+      color: #ffcc00;
+      text-decoration: none;
+      margin: 0 5px;
+    }
+    
+    .home-footer a:hover {
+      text-decoration: underline;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .hero-info-container {
+        flex-direction: column;
+        padding: 30px 20px;
+      }
+      .sidebar {
+        margin-left: 0;
+        margin-top: 30px;
+      }
+      .extra-content {
+        padding: 30px 20px;
+      }
+    }
+    
+  }
+  
+  .puzzle-title {
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  
+  .player-move {
+    margin-bottom: 5px;
+  }
+  
+  .puzzle-fen {
+    font-family: "Courier New", Courier, monospace;
+    background-color: #f3f3f3;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+  }
+  
+  .puzzle-button {
+    width: 100%;
+  }
+  
+  .puzzle-solution {
+    border: 2px dashed #1a73e8;
+    padding: 15px;
+    margin-top: 15px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  /* Wrapper to center the chessboard */
+  .chessboard-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+  

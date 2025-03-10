@@ -1,7 +1,7 @@
 /* Container and Overall Layout */
 .home-container {
   min-height: 100vh;
-  width: 100%;
+  width: 240vw;
   max-width: 1400px;
   margin: 35px auto;
   display: flex;
@@ -13,7 +13,7 @@
 
 /* Common Hero Title (spanning both hero and sidebar) */
 .common-hero-title {
-  width: 100%;
+  width: 100;
   padding: 20px 80px;
   background: rgba(255, 255, 255, 0.9);
   text-align: center;

@@ -92,7 +92,7 @@ const Home = () => {
   {/* Tutorial Info Section */}
   <div className="tutorial-info">
     <Typography variant="h4" className="tutorial-info-title">
-      Tutorial Info
+    Animated Cartoon Series for Beginners | Kids Academy
     </Typography>
     <Typography variant="body1" className="tutorial-info-text">
       In this video, you'll learn the basics of chess, including piece movements, key strategies, and fun tips to kick-start your chess journey! Our engaging tutorial is designed especially for kids to make learning chess fun and interactive.
